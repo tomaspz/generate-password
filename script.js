@@ -15,54 +15,48 @@ function generatePassword(){
   
   // Prompt user for password length
   var length = getLength();
-  console.log(length);
+  console.log("The length of the password should be : " + length + " characters");
   // 4 confirms
 
   // Special Characters
   var isSpecial = getSpecialChar();
-  console.log(isSpecial);
+  console.log("If true, the user wants to include special characters: " + isSpecial);
   if(isSpecial){
     includeInPassword = includeInPassword.concat(specialChar);
   }
-  console.log(includeInPassword.length);
+  console.log("Length of the string is now: " + includeInPassword.length);
 
   // Lowercase
   var isLower = getLowercase();
   if(isLower) {
     includeInPassword = includeInPassword.concat(lowercaseChar);
   }
-  console.log(includeInPassword.length);
+  console.log("Length of the string is now: " + includeInPassword.length);
 
   // Uppercase
   var isUpper = getUppercase();
   if(isUpper) {
     includeInPassword = includeInPassword.concat(uppercaseChar);
   }
-  console.log(includeInPassword.length);
+  console.log("Length of the string is now: " + includeInPassword.length);
 
   // Number
   var isNumero = getNumbers();
   if(isNumero){
     includeInPassword = includeInPassword.concat(numberChar);
   }
-  console.log(includeInPassword.length);
-  console.log(includeInPassword);
-  console.log("Array lenght is " + Array(length));
-  console.log(Array(length).fill(includeInPassword));
+  console.log("Length of the string is now: " + includeInPassword.length);
+  console.log("They final string to process: " + includeInPassword);
+
 
   // generate password based on user soecifications, which come from confirmations
-
-  // var randomPassword = Array(length).fill(includeInPassword).map(function(x) { return x[Math.floor(Math.random() * x.length)] });
 
   for (var i=0; i<length; i++) {
     var randNum = Math.floor(Math.random() * includeInPassword.length);
     randomPassword += includeInPassword.substring(randNum,randNum+1);
   }
-  // for(var i=0; i<10 ; i++) { --> length user typed in
 
-  // }
-
-  console.log(randomPassword);
+  console.log("The random password generated under user specifications is: " + randomPassword);
   return randomPassword;
   
 }
