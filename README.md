@@ -21,3 +21,13 @@ Procedure:
 3.- The user input is validated. At least one character type should be selected
 4.- After all prompts are answered, a password is generated that matches the selected criteria
 5.- The password is displayed on the page
+
+# Screenshot
+
+https://tomaspz.github.io/generate-password/screenshot_password_generator_tpz.png
+
+
+# Link to deployed app
+
+https://tomaspz.github.io/generate-password/index.html
+
