@@ -5,7 +5,7 @@ var generateBtn = document.querySelector("#generate");
 // The goal is to return something
 
 function generatePassword(){
-  var passwordChar = '';
+  var includeInPassword = "";
   var lowercaseChar = 'abcdefghijklmnopqrstuvwxyz';
   var uppercaseChar = 'ABCDEFGHIJKLMNOPQRSTUVWXYZ';
   // var specialChar = ["!",'"', "#", "$", "%", "&", "'", "()", "*", "+", ",", "-", ".", "/", ":", ";", "<", "=", ">", "?", "@", "[", '\', "]", "^", "_", '`', '{', '|', '}', '~'];
@@ -19,24 +19,36 @@ function generatePassword(){
 
   // Special Characters
   var special = getSpecialChar();
-  // Numbers - 10 characters long
+  if(special){
+    includeInPassword.concat(specialChar);
+  }
 
   // Lowercase
   var lower = getLowercase();
-
+  if(lower) {
+    includeInPassword.concat(lowercaseChar);
+  }
   // Uppercase
   var upper = getUppercase();
-
+  if(upper) {
+    includeInPassword.concat(uppercaseChar);
+  }
   // Number
   var numeros = getNumbers();
-
+  if(numeros){
+    includeInPassword.concat(numberChar);
+  }
   // generate password based on user soecifications, which come from confirmations
-  var randomPassword = Array(length).fill()
+  var randomPassword = Array(length).fill(includeInPassword).map(
+    function(x) {
+      return x[Math.floor(Math.random() * x.length)]
+    }).join('');
+
   // " !"#$%&'()*+,-./:;<=>?@[\]^_`{|}~" 
   // for(var i=0; i<10 ; i++) { --> length user typed in
 
   // }
-  return passwordChar;
+  return randomPassword;
 }
 
 function writePassword() {
@@ -76,6 +88,8 @@ function getNumbers() {
   var userInputNumber = confirm("Do you want to include numbers from 0 to 9?");
   return userInputNumber;
 };
+
+
 
 // Add event listener to generate button
 generateBtn.addEventListener("click", writePassword);
