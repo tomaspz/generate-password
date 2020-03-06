@@ -5,50 +5,66 @@ var generateBtn = document.querySelector("#generate");
 // The goal is to return something
 
 function generatePassword(){
+  var randomPassword = "";
   var includeInPassword = "";
   var lowercaseChar = 'abcdefghijklmnopqrstuvwxyz';
   var uppercaseChar = 'ABCDEFGHIJKLMNOPQRSTUVWXYZ';
   // var specialChar = ["!",'"', "#", "$", "%", "&", "'", "()", "*", "+", ",", "-", ".", "/", ":", ";", "<", "=", ">", "?", "@", "[", '\', "]", "^", "_", '`', '{', '|', '}', '~'];
   var specialChar = " !\"#$%&'()*+,-./:;<=>?@[\]^_`{|}~";   // I had to add a backslahs in front of the double quote character
-  var numberChar = '123456789';
+  var numberChar = '0123456789';
   
   // Prompt user for password length
   var length = getLength();
-  
+  console.log(length);
   // 4 confirms
 
   // Special Characters
-  var special = getSpecialChar();
-  if(special){
-    includeInPassword.concat(specialChar);
+  var isSpecial = getSpecialChar();
+  console.log(isSpecial);
+  if(isSpecial){
+    includeInPassword = includeInPassword.concat(specialChar);
   }
+  console.log(includeInPassword.length);
 
   // Lowercase
-  var lower = getLowercase();
-  if(lower) {
-    includeInPassword.concat(lowercaseChar);
+  var isLower = getLowercase();
+  if(isLower) {
+    includeInPassword = includeInPassword.concat(lowercaseChar);
   }
-  // Uppercase
-  var upper = getUppercase();
-  if(upper) {
-    includeInPassword.concat(uppercaseChar);
-  }
-  // Number
-  var numeros = getNumbers();
-  if(numeros){
-    includeInPassword.concat(numberChar);
-  }
-  // generate password based on user soecifications, which come from confirmations
-  var randomPassword = Array(length).fill(includeInPassword).map(
-    function(x) {
-      return x[Math.floor(Math.random() * x.length)]
-    }).join('');
+  console.log(includeInPassword.length);
 
-  // " !"#$%&'()*+,-./:;<=>?@[\]^_`{|}~" 
+  // Uppercase
+  var isUpper = getUppercase();
+  if(isUpper) {
+    includeInPassword = includeInPassword.concat(uppercaseChar);
+  }
+  console.log(includeInPassword.length);
+
+  // Number
+  var isNumero = getNumbers();
+  if(isNumero){
+    includeInPassword = includeInPassword.concat(numberChar);
+  }
+  console.log(includeInPassword.length);
+  console.log(includeInPassword);
+  console.log("Array lenght is " + Array(length));
+  console.log(Array(length).fill(includeInPassword));
+
+  // generate password based on user soecifications, which come from confirmations
+
+  // var randomPassword = Array(length).fill(includeInPassword).map(function(x) { return x[Math.floor(Math.random() * x.length)] });
+
+  for (var i=0; i<length; i++) {
+    var randNum = Math.floor(Math.random() * includeInPassword.length);
+    randomPassword += includeInPassword.substring(randNum,randNum+1);
+  }
   // for(var i=0; i<10 ; i++) { --> length user typed in
 
   // }
+
+  console.log(randomPassword);
   return randomPassword;
+  
 }
 
 function writePassword() {
