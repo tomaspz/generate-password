@@ -34,7 +34,7 @@ Procedure:
 
 # Screenshot
 
-[Random Password Generator](/screenshot_password_generator_tpz.png)
+![Random Password Generator](/screenshot_password_generator_tpz.png)
 
 
 # Link to deployed app
