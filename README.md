@@ -1,10 +1,11 @@
-# generate-password
+# Generate a Random Password
 
 I created an application that generates a random password based on user selected criteria. 
-This app runs in the browser. 
-HTML and CSS are updated dynamically with JavaScript code. 
-The user interface is clean, polished and intuitive for the user.
-The page is responsive and adapts to multiple screen sizes.
+
+* This app runs in the browser. 
+* HTML and CSS are updated dynamically with JavaScript code. 
+* The user interface is clean, polished and intuitive for the user.
+* The page is responsive and adapts to multiple screen sizes.
 
 This application is perfect for an employee that has access to sensitive data.
 This application will randomly generate a password that meets certain criteria (specified by the user input).
@@ -33,7 +34,7 @@ Procedure:
 
 # Screenshot
 
-https://tomaspz.github.io/generate-password/screenshot_password_generator_tpz.png
+[Random Password Generator](/screenshot_password_generator_tpz.png)
 
 
 # Link to deployed app
